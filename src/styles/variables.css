@@ -1,0 +1,17 @@
+:root {
+  --color-black: #0f0f0f;
+  --color-grey: #1d1d1b;
+  --color-grey-text: #1d1d1d;
+  --color-white: #fdfcfa;
+  --color-bg: #ffffff;
+
+  --font-body: 'Roboto Flex', sans-serif;
+  --font-heading: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --max-width: 1920px;
+  --content-width: 1516px;
+  --side-padding: clamp(24px, 10.5vw, 202px);
+
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}

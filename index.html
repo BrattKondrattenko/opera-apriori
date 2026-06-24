@@ -1,67 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Julia</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #fff;
-      padding: 2rem;
-    }
-
-    .card {
-      text-align: center;
-      max-width: 520px;
-      padding: 3rem 2.5rem;
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(12px);
-      border-radius: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-    }
-
-    h1 {
-      font-size: 2.75rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.02em;
-    }
-
-    p {
-      font-size: 1.125rem;
-      line-height: 1.6;
-      opacity: 0.9;
-      margin-bottom: 2rem;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 999px;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-  </style>
-</head>
-<body>
-  <main class="card">
-    <h1>Julia</h1>
-    <p>Добро пожаловать! Сайт успешно развёрнут на Vercel.</p>
-    <span class="badge">✓ Работает</span>
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Опера Априори — Международный фестиваль вокальной музыки</title>
+    <link
+      rel="preload"
+      href="/assets/afisha-hero-source.png"
+      as="image"
+      type="image/png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&family=Roboto+Flex:opsz,wdth,wght@8..144,40..150,100..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
