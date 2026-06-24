@@ -173,16 +173,16 @@
     ══════════════════════════════════════════════ -->
     <p class="partners-heading partners-heading--official page-reveal" style="--delay: 0s">официальные&nbsp;&nbsp;партнеры</p>
     <img :src="LOGO_MARIINSKY"  alt="" class="official-logo official-logo--1 page-reveal" style="--delay: 0.06s" />
-    <img :src="LOGO_STARTRAK"   alt="" class="official-logo official-logo--2 page-reveal" style="--delay: 0.1s" />
-    <img :src="LOGO_KONSERV"    alt="" class="official-logo official-logo--3 page-reveal" style="--delay: 0.14s" />
-    <img :src="LOGO_ZARYADYE"   alt="" class="official-logo official-logo--4 page-reveal" style="--delay: 0.18s" />
+    <img :src="LOGO_STARTRAK"  alt="" class="official-logo official-logo--2 page-reveal" style="--delay: 0.1s" />
+    <img :src="LOGO_MARRIOTT"   alt="" class="official-logo official-logo--3 page-reveal" style="--delay: 0.14s" />
+    <img :src="LOGO_IMPERIAL"  alt="" class="official-logo official-logo--4 page-reveal" style="--delay: 0.18s" />
     <img :src="LOGO_PARTNER_4"  alt="" class="official-logo official-logo--5 page-reveal" style="--delay: 0.22s" />
-    <img :src="LOGO_PARTNER_5"  alt="" class="official-logo official-logo--6 page-reveal" style="--delay: 0.26s" />
+    <img :src="LOGO_KEMPINSKI"  alt="" class="official-logo official-logo--6 page-reveal" style="--delay: 0.26s" />
 
     <p class="partners-heading partners-heading--media page-reveal" style="--delay: 0s">медиа партнеры</p>
     <img :src="LOGO_VOGUE"   alt="" class="media-logo media-logo--1 page-reveal" style="--delay: 0.06s" />
     <img :src="LOGO_KULTURA" alt="" class="media-logo media-logo--2 page-reveal" style="--delay: 0.1s" />
-    <img :src="LOGO_KAIROS"  alt="" class="media-logo media-logo--3 page-reveal" style="--delay: 0.14s" />
+    <img :src="LOGO_CULTURE"  alt="" class="media-logo media-logo--3 page-reveal" style="--delay: 0.14s" />
     <img :src="LOGO_GROUP"   alt="" class="media-logo media-logo--4 page-reveal" style="--delay: 0.18s" />
 
   </div>
@@ -259,15 +259,15 @@ const RECORD_3 = 'https://www.figma.com/api/mcp/asset/ab196b3c-5dee-41f7-946d-b4
 // Official partner logos
 const LOGO_MARIINSKY = 'https://www.figma.com/api/mcp/asset/909e4d06-bc7c-4831-a25a-eea258067183'
 const LOGO_STARTRAK  = 'https://www.figma.com/api/mcp/asset/8e226cb7-f2bd-4586-9e67-78581d79159e'
-const LOGO_KONSERV   = 'https://www.figma.com/api/mcp/asset/fa44677c-a027-4ca9-b9a0-39d6c1e01925'
-const LOGO_ZARYADYE  = 'https://www.figma.com/api/mcp/asset/28b263a0-f4f9-413f-9bae-63017b6add9c'
+const LOGO_MARRIOTT  = '/assets/mariot.png'
+const LOGO_IMPERIAL  = '/assets/imperial.png'
 const LOGO_PARTNER_4 = 'https://www.figma.com/api/mcp/asset/67c84758-ee25-4547-9794-10815408f4b4'
-const LOGO_PARTNER_5 = 'https://www.figma.com/api/mcp/asset/1ca319c7-f8e5-4749-98cd-7a4d832b8ef6'
+const LOGO_KEMPINSKI = 'https://www.figma.com/api/mcp/asset/c518909e-15ff-4d50-9043-ec549b28b6b0'
 
 // Media partner logos
 const LOGO_VOGUE   = 'https://www.figma.com/api/mcp/asset/9580d64e-eb1d-4f68-a91b-0b0b7342a04e'
 const LOGO_KULTURA = 'https://www.figma.com/api/mcp/asset/9ca6b6de-bc01-4fa4-933b-84d0774e592d'
-const LOGO_KAIROS  = 'https://www.figma.com/api/mcp/asset/c518909e-15ff-4d50-9043-ec549b28b6b0'
+const LOGO_CULTURE = '/assets/culture.png'
 const LOGO_GROUP   = 'https://www.figma.com/api/mcp/asset/dd982d83-f008-4e6d-ae35-a4517fa23adc'
 </script>
 
@@ -279,8 +279,8 @@ const LOGO_GROUP   = 'https://www.figma.com/api/mcp/asset/dd982d83-f008-4e6d-ae3
 .about-page {
   position: relative;
   width: 1920px;
-  /* Height: last media-logo bottom ≈ 5260px + 60px padding */
-  height: 5320px;
+  /* Height: last media-logo bottom 5261px + 172px gap to footer */
+  height: 5433px;
   background: var(--color-bg);
   overflow: hidden;
   opacity: 0;
@@ -306,6 +306,28 @@ const LOGO_GROUP   = 'https://www.figma.com/api/mcp/asset/dd982d83-f008-4e6d-ae3
   opacity: 1;
   transform: translateY(0);
   filter: blur(0);
+}
+
+.about-page .official-logo.page-reveal,
+.about-page .media-logo.page-reveal {
+  --logo-opacity: 0.3;
+}
+
+.about-page .official-logo.page-reveal.is-visible,
+.about-page .media-logo.page-reveal.is-visible {
+  opacity: var(--logo-opacity);
+}
+
+.about-page .official-logo--3.page-reveal,
+.about-page .official-logo--4.page-reveal,
+.about-page .media-logo--3.page-reveal {
+  --logo-opacity: 1;
+}
+
+.about-page .official-logo--3.page-reveal.is-visible,
+.about-page .official-logo--4.page-reveal.is-visible,
+.about-page .media-logo--3.page-reveal.is-visible {
+  opacity: 1;
 }
 
 .about-page .btn-pill.page-reveal {
@@ -997,21 +1019,22 @@ const LOGO_GROUP   = 'https://www.figma.com/api/mcp/asset/dd982d83-f008-4e6d-ae3
    ──────────────────────────────────────────────────────────────── */
 .official-logo {
   position: absolute;
-  opacity: 0.3;
+  --logo-opacity: 0.3;
+  opacity: var(--logo-opacity);
   object-fit: contain;
 }
 
 /* imgImage419 (Mariinsky): h:101, bottom offset 190 → top: 4762+190-101=4851, left:202 */
 .official-logo--1 { top: 4851px; left: 202px;   height: 101px; width: 112px; }
-/* imgImage442 (STARTRAK): h:32, bottom offset 158 → top: 4762+158-32=4888, left:696 */
+/* Lyapinak: h:32, bottom offset 158 → top: 4762+158-32=4888, left:696 */
 .official-logo--2 { top: 4888px; left: 696px;   height: 32px;  width: 185px; }
-/* imgImage417 (Konserv): h:103, bottom offset 191 → top: 4762+191-103=4850, left:421 */
-.official-logo--3 { top: 4850px; left: 421px;   height: 103px; width: 168px; }
-/* imgImage410 (Zaryadye): h:107, bottom offset 196 → top: 4762+196-107=4851, left:1573 */
-.official-logo--4 { top: 4851px; left: 1573px;  height: 107px; width: 145px; }
+/* Marriott: h:103, bottom offset 191 → top: 4762+191-103=4850, left:421 */
+.official-logo--3 { top: 4850px; left: 421px;   height: 103px; width: 166px; --logo-opacity: 1; }
+/* Imperial: h:107, bottom offset 196 → top: 4762+196-107=4851, left:1573 */
+.official-logo--4 { top: 4851px; left: 1573px;  height: 107px; width: 145px; --logo-opacity: 1; }
 /* imgImage445 (partner 4): h:64, bottom offset 174 → top: 4762+174-64=4872, left:1311 */
 .official-logo--5 { top: 4872px; left: 1311px;  height: 64px;  width: 155px; }
-/* imgImage448 (partner 5): h:85, bottom offset 179 → top: 4762+179-85=4856, left:988 */
+/* Kempinski: h:85, bottom offset 179 → top: 4762+179-85=4856, left:988 */
 .official-logo--6 { top: 4856px; left: 988px;   height: 85px;  width: 216px; }
 
 /* ── Media partner logos ────────────────────────────────────────
@@ -1023,7 +1046,8 @@ const LOGO_GROUP   = 'https://www.figma.com/api/mcp/asset/dd982d83-f008-4e6d-ae3
    ──────────────────────────────────────────────────────────────── */
 .media-logo {
   position: absolute;
-  opacity: 0.3;
+  --logo-opacity: 0.3;
+  opacity: var(--logo-opacity);
   object-fit: contain;
 }
 
@@ -1031,8 +1055,8 @@ const LOGO_GROUP   = 'https://www.figma.com/api/mcp/asset/dd982d83-f008-4e6d-ae3
 .media-logo--1 { top: 5194px; left: 481px;  height: 54px;  width: 204px; }
 /* imgImage447 (Kultura): h:100, offset 498 → top: 4762+498-100=5160, left:801 */
 .media-logo--2 { top: 5160px; left: 801px;  height: 100px; width: 110px; }
-/* imgImage443 (Kairos): h:73, offset 499 → top: 4762+499-73=5188, left:978 */
-.media-logo--3 { top: 5188px; left: 978px;  height: 73px;  width: 257px; }
+/* culture.png: h:74, offset 499 → top: 4762+499-74=5187, left:978 */
+.media-logo--3 { top: 5187px; left: 978px;  height: 74px;  width: 258px; --logo-opacity: 1; }
 /* imgGroup: h:101, offset 498.5 → top: 4762+498.5-100.5=5160, left:1318 */
 .media-logo--4 { top: 5160px; left: 1318px; height: 101px; width: 121px; }
 </style>
