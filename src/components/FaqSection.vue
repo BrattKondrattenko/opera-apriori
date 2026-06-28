@@ -176,4 +176,29 @@ useRevealGroup(sectionRef)
 .faq__item:last-child .faq__divider {
   margin-bottom: 0;
 }
+
+@media (max-width: 768px) {
+  .faq {
+    padding: 48px 0;
+  }
+
+  .faq__header {
+    margin-bottom: 32px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .faq__list {
+    margin-top: 24px;
+  }
+
+  .faq__question {
+    gap: 16px;
+    padding-bottom: 16px;
+  }
+
+  .faq__item .faq__divider {
+    margin-bottom: 24px;
+  }
+}
 </style>

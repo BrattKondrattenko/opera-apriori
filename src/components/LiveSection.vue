@@ -5,7 +5,7 @@
     <div class="live__outer container">
       <div class="live__block">
         <div class="live__bg reveal-item reveal-item--scale-in" style="--delay: 0.06s" aria-hidden="true">
-          <img src="/assets/live-banner.png" alt="" />
+          <img src="/assets/live-banner.png" alt="" loading="lazy" decoding="async" />
         </div>
         <hr class="live__divider-v reveal-item reveal-item--line-v" style="--delay: 0.18s" aria-hidden="true" />
 
@@ -115,9 +115,12 @@ useRevealGroup(sectionRef, { observer: { threshold: 0.32 } })
 
 @media (max-width: 1100px) {
   .live__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: auto;
-    min-height: 403px;
-    padding: 46px 0;
+    min-height: clamp(320px, 45vw, 403px);
+    padding: clamp(32px, 4vw, 46px) clamp(20px, 3vw, 32px);
   }
 
   .live__divider-v {
@@ -130,11 +133,12 @@ useRevealGroup(sectionRef, { observer: { threshold: 0.32 } })
   }
 
   .live__aside {
-    position: static;
+    position: relative;
+    z-index: 2;
     max-width: none;
     align-items: flex-start;
     gap: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 0;
     padding: 0;
   }
 
@@ -143,8 +147,21 @@ useRevealGroup(sectionRef, { observer: { threshold: 0.32 } })
   }
 
   .live__heading {
-    position: static;
-    padding-left: 0;
+    position: relative;
+    z-index: 2;
+    margin-top: auto;
+    padding-top: clamp(24px, 4vw, 48px);
+  }
+}
+
+@media (max-width: 768px) {
+  .live__desc br {
+    display: none;
+  }
+
+  .live__btn {
+    width: 100%;
+    max-width: 100%;
   }
 }
 </style>

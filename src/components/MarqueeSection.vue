@@ -9,6 +9,8 @@
             :src="item.logo"
             :alt="item.alt"
             class="marquee__logo"
+            loading="lazy"
+            decoding="async"
           />
           <div v-if="item.text" class="marquee__text body-text">
             <span>{{ item.text[0] }}</span>
@@ -117,6 +119,35 @@ const items = [
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee__track {
+    padding: 32px 0;
+  }
+
+  .marquee__content {
+    gap: 24px;
+    padding-right: 24px;
+  }
+
+  .marquee__item {
+    gap: 24px;
+  }
+
+  .marquee__logo {
+    height: 28px;
+  }
+
+  .marquee__text {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .marquee__star {
+    width: 28px;
+    height: auto;
   }
 }
 </style>

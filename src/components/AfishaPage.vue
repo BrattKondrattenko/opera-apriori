@@ -8,6 +8,7 @@
       height="326"
       fetchpriority="high"
       decoding="async"
+      loading="eager"
     />
 
     <hr class="afisha__divider divider-full page-reveal" style="--delay: 0.08s" />

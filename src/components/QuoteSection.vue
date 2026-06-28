@@ -6,6 +6,8 @@
         alt=""
         class="quote__img reveal-item"
         style="--delay: 0s"
+        loading="lazy"
+        decoding="async"
       />
     </div>
     <blockquote class="quote__text">
@@ -91,5 +93,40 @@ useRevealGroup(sectionRef, { observer: { threshold: 0.32 } })
   white-space: nowrap;
   font-variation-settings: "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79,
     "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712, "wdth" 56;
+}
+
+@media (max-width: 1919px) {
+  .quote {
+    width: 100%;
+    height: clamp(480px, 75vw, 954px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(32px, 5vw, 80px) var(--side-padding);
+    box-sizing: border-box;
+  }
+
+  .quote__text {
+    position: static;
+    width: 100%;
+    font-size: clamp(22px, 3.8vw, 46px);
+    line-height: 1.13;
+  }
+
+  .quote__line {
+    white-space: normal;
+  }
+
+  .quote__indent {
+    display: none;
+  }
+
+  .quote__author {
+    position: static;
+    margin-top: clamp(16px, 3vw, 32px);
+    align-self: flex-end;
+    font-size: clamp(16px, 2vw, 22px);
+    white-space: normal;
+  }
 }
 </style>

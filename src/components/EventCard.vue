@@ -107,4 +107,34 @@ defineProps({
     gap: 40px;
   }
 }
+
+@media (max-width: 768px) {
+  .event-card__title {
+    margin-bottom: 32px;
+  }
+
+  .event-card__tags {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .event-card__date {
+    height: auto;
+  }
+
+  .event-card__date-day,
+  .event-card__date-month {
+    height: 64px;
+    width: 65px;
+  }
+
+  .event-card__date-slash {
+    height: 64px;
+    width: 12px;
+  }
+
+  .event-card__image-wrap {
+    height: clamp(200px, 55vw, 286px);
+  }
+}
 </style>

@@ -1,5 +1,6 @@
 <script setup>
-import { computed, watch } from 'vue'
+import { computed, watch, onMounted } from 'vue'
+import { preloadRouteAssets } from './utils/preloadAssets'
 import AppHeader from './components/AppHeader.vue'
 import HomePage from './components/HomePage.vue'
 import AfishaPage from './components/AfishaPage.vue'
@@ -21,12 +22,17 @@ const pageClass = computed(() => {
 
 watch(
   route,
-  () => {
+  (nextRoute) => {
     document.documentElement.scrollTop = 0
     document.body.scrollTop = 0
+    preloadRouteAssets(nextRoute)
   },
   { flush: 'post' }
 )
+
+onMounted(() => {
+  preloadRouteAssets(route.value)
+})
 </script>
 
 <template>

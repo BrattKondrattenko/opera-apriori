@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { preloadAllAssets } from './utils/preloadAssets'
+import { preloadCriticalAssets } from './utils/preloadAssets'
 import './styles/variables.css'
 import './styles/main.css'
 
-preloadAllAssets()
+preloadCriticalAssets()
 
 createApp(App).mount('#app')

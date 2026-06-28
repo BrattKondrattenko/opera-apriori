@@ -164,5 +164,26 @@ const cardRevealVariants = [
   .events__footer {
     justify-content: center;
   }
+
+  .events__heading {
+    padding-top: clamp(60px, 10vw, 148px);
+  }
+}
+
+@media (max-width: 768px) {
+  .events__heading {
+    padding-top: 48px;
+    margin-bottom: 24px;
+  }
+
+  .events__footer {
+    margin-top: 32px;
+  }
+
+  .events__link {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
 }
 </style>

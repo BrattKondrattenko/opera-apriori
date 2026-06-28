@@ -4,10 +4,10 @@
 
     <div class="about__box">
       <div class="about__bg" aria-hidden="true">
-        <img src="/assets/bg1.jpg" alt="" />
+        <img src="/assets/bg1.jpg" alt="" loading="lazy" decoding="async" />
       </div>
       <div class="about__glow" aria-hidden="true">
-        <img src="/assets/about-glow.png" alt="" />
+        <img src="/assets/about-glow.png" alt="" loading="lazy" decoding="async" />
       </div>
 
       <div class="about__content container">
@@ -19,6 +19,8 @@
             alt="Опера"
             width="642"
             height="289"
+            loading="lazy"
+            decoding="async"
           />
           <div class="about__date body-text reveal-item" style="--delay: 0.1s">
             <img src="/assets/icon-dot.svg" alt="" width="11" height="11" />
@@ -213,6 +215,47 @@ useRevealGroup(sectionRef)
 
   .about__lower {
     padding-top: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__box,
+  .about__content {
+    height: auto;
+    min-height: clamp(420px, 110vw, 627px);
+  }
+
+  .about__glow {
+    display: none;
+  }
+
+  .about__opera {
+    width: min(642px, 90%);
+  }
+
+  .about__date {
+    flex-wrap: wrap;
+    white-space: normal;
+    font-size: clamp(16px, 4vw, 22px);
+  }
+
+  .about__subtitle {
+    margin-top: 24px;
+    margin-bottom: 32px;
+  }
+
+  .about__desc-line {
+    white-space: normal;
+  }
+
+  .about__lower {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .about__tagline {
+    max-width: none;
+    margin-bottom: 32px;
   }
 }
 </style>

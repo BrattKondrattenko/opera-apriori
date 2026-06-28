@@ -21,7 +21,7 @@
 
         <div class="venues__featured">
           <div class="venues__image reveal-item reveal-item--image" style="--delay: 0.36s">
-            <img src="/assets/mmm.jpg" alt="Концертный зал им. Чайковского" />
+            <img src="/assets/mmm.jpg" alt="Концертный зал им. Чайковского" loading="lazy" decoding="async" />
           </div>
           <div class="venues__featured-footer reveal-item reveal-item--from-right" style="--delay: 0.5s">
             <div class="venues__featured-info">
@@ -222,6 +222,22 @@ useRevealGroup(sectionRef)
   .venues__featured-footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .venues__layout {
+    margin-top: 40px;
+    gap: 32px;
+  }
+
+  .venues__heading {
+    margin-bottom: 24px;
+  }
+
+  .venues__link {
+    flex-wrap: wrap;
+    white-space: normal;
   }
 }
 </style>

@@ -69,7 +69,8 @@
 
 <style scoped>
 .footer {
-  width: 1920px;
+  width: 100%;
+  max-width: 1920px;
   margin: 0 auto;
   background: #000;
   color: var(--color-white);
@@ -183,5 +184,61 @@
   opacity: 0.5;
   font-variation-settings: 'GRAD' 0, 'XOPQ' 96, 'XTRA' 468, 'YOPQ' 79,
     'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'YTLC' 514, 'YTUC' 712, 'wdth' 40;
+}
+
+@media (max-width: 1919px) {
+  .footer__main {
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(24px, 4vw, 53px);
+    padding: 45px var(--side-padding) 0;
+  }
+
+  .footer__bottom {
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(24px, 4vw, 53px);
+    padding: clamp(48px, 6vw, 80px) var(--side-padding) 60px;
+  }
+
+  .footer__logo {
+    right: var(--side-padding);
+  }
+}
+
+@media (max-width: 1100px) {
+  .footer__main {
+    grid-template-columns: 1fr;
+    row-gap: 48px;
+    padding-top: 40px;
+  }
+
+  .footer__heading {
+    margin-bottom: 32px;
+  }
+
+  .footer__logo {
+    position: static;
+    width: 72px;
+    height: auto;
+    margin-top: 8px;
+  }
+
+  .footer__bottom {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 48px var(--side-padding) 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__subscribe-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer__contact-row {
+    grid-template-columns: 64px 1fr;
+    column-gap: 24px;
+  }
 }
 </style>

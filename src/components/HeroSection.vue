@@ -2,22 +2,67 @@
   <section class="hero">
     <div class="hero__media">
       <video
+        ref="videoRef"
         class="hero__video"
-        autoplay
+        :class="{ 'hero__video--ready': videoReady }"
         muted
         loop
         playsinline
+        preload="none"
         poster="/assets/hero-poster.jpg"
       >
-        <source src="/assets/video-opera.mp4" type="video/mp4" />
+        <source v-if="shouldLoadVideo" src="/assets/video-opera.mp4" type="video/mp4" />
       </video>
       <div class="hero__gradient"></div>
       <div class="hero__logo hero__logo--enter">
-        <img src="/assets/hero-logo.svg" alt="Опера Априори" />
+        <img src="/assets/hero-logo.svg" alt="Опера Априори" fetchpriority="high" />
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const videoRef = ref(null)
+const shouldLoadVideo = ref(false)
+const videoReady = ref(false)
+
+let cancelled = false
+
+onMounted(() => {
+  const startVideo = () => {
+    if (cancelled) return
+    shouldLoadVideo.value = true
+
+    requestAnimationFrame(() => {
+      const video = videoRef.value
+      if (!video || cancelled) return
+
+      video.addEventListener(
+        'canplay',
+        () => {
+          if (!cancelled) videoReady.value = true
+        },
+        { once: true }
+      )
+
+      video.load()
+      video.play().catch(() => {})
+    })
+  }
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(startVideo, { timeout: 2500 })
+  } else {
+    setTimeout(startVideo, 1200)
+  }
+})
+
+onUnmounted(() => {
+  cancelled = true
+})
+</script>
 
 <style scoped>
 .hero {
@@ -37,6 +82,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hero__video--ready {
+  opacity: 1;
 }
 
 .hero__gradient {
@@ -78,6 +129,22 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 16px 16px 48px;
+  }
+
+  .hero__media {
+    height: clamp(280px, 70vw, 600px);
+  }
+
+  .hero__logo {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
   }
 }
 </style>

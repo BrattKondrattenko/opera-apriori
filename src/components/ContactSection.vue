@@ -95,4 +95,22 @@ useRevealGroup(sectionRef, { observer: { threshold: 0.32 } })
 .contact__btn {
   margin-top: 0;
 }
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 48px 0;
+  }
+
+  .contact__sub {
+    margin-bottom: 40px;
+  }
+
+  .contact__form {
+    gap: 40px;
+  }
+
+  .contact__field {
+    gap: 40px;
+  }
+}
 </style>
