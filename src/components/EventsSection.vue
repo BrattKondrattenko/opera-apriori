@@ -153,8 +153,8 @@ const cardRevealVariants = [
   .events__grid > :not(:last-child) {
     padding-right: 0;
     border-bottom: 1px solid var(--color-black);
-    padding-bottom: 60px;
-    margin-bottom: 60px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
   }
 
   .events__grid > :not(:first-child) {
@@ -173,6 +173,11 @@ const cardRevealVariants = [
 @media (max-width: 768px) {
   .events__heading {
     padding-top: 48px;
+    margin-bottom: 24px;
+  }
+
+  .events__grid > :not(:last-child) {
+    padding-bottom: 24px;
     margin-bottom: 24px;
   }
 

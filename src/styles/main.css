@@ -41,11 +41,16 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a.btn-pill {
+  -webkit-tap-highlight-color: transparent;
 }
 
 .container {
@@ -126,6 +131,8 @@ a {
   letter-spacing: 0;
   text-transform: uppercase;
   color: var(--color-grey-text);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   transition:
     background-color var(--transition),
     color var(--transition),
@@ -148,12 +155,20 @@ a {
   padding: 31px 47px;
   border-color: var(--color-black);
   color: var(--color-black);
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(4.3px);
+  -webkit-backdrop-filter: blur(4.3px);
+  isolation: isolate;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   height: 75px;
   transition:
     background-color var(--transition),
     color var(--transition),
-    border-color var(--transition);
+    border-color var(--transition),
+    backdrop-filter var(--transition),
+    -webkit-backdrop-filter var(--transition);
 }
 
 .btn-pill--glass::before {
@@ -166,9 +181,7 @@ a {
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0.1) 100%
   );
-  backdrop-filter: blur(4.3px);
-  -webkit-backdrop-filter: blur(4.3px);
-  z-index: -1;
+  z-index: 0;
   transition: opacity var(--transition);
   pointer-events: none;
 }
@@ -176,6 +189,8 @@ a {
 .btn-pill--glass:hover {
   background-color: var(--color-black);
   color: var(--color-white);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .btn-pill--glass:hover::before {
@@ -358,14 +373,31 @@ a {
   filter: blur(0);
 }
 
-/* Кнопки в reveal-секциях: сохраняем плавный hover по цвету */
+/* Кнопки в reveal-секциях: без blur — на iOS даёт чёрные артефакты по краям */
+.reveal-group .btn-pill.reveal-item,
+.reveal-group--rich .btn-pill.reveal-item,
+.reveal-group .btn-pill.btn-pill--glass.reveal-item,
+.reveal-group--rich .btn-pill.reveal-item.reveal-item--from-left,
+.reveal-group--rich .btn-pill.reveal-item.reveal-item--from-right,
+.reveal-group--rich .btn-pill.reveal-item.reveal-item--scale-in {
+  filter: none;
+  will-change: opacity, transform;
+}
+
+.reveal-group.is-visible .btn-pill.reveal-item,
+.reveal-group--rich.is-visible .btn-pill.reveal-item,
+.reveal-group--rich.is-visible .btn-pill.reveal-item.reveal-item--from-left,
+.reveal-group--rich.is-visible .btn-pill.reveal-item.reveal-item--from-right,
+.reveal-group--rich.is-visible .btn-pill.reveal-item.reveal-item--scale-in {
+  filter: none;
+}
+
 .reveal-group .btn-pill.reveal-item,
 .reveal-group--rich .btn-pill.reveal-item,
 .reveal-group .btn-pill.btn-pill--glass.reveal-item {
   transition:
     opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
     transform 1.1s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
-    filter 1.1s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
     background-color var(--transition),
     color var(--transition),
     border-color var(--transition);
@@ -375,7 +407,6 @@ a {
   transition:
     opacity 1.35s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
     transform 1.35s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
-    filter 1.35s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
     background-color var(--transition),
     color var(--transition),
     border-color var(--transition);
@@ -385,7 +416,6 @@ a {
   transition:
     opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
     transform 1.5s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
-    filter 1.5s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
     background-color var(--transition),
     color var(--transition),
     border-color var(--transition);
@@ -503,11 +533,21 @@ a {
   transform: translateX(-50%) scale(0.94);
 }
 
+.login-page .login-form__submit.page-reveal,
+.login-page .login-form__submit.page-reveal.page-reveal--scale-in {
+  filter: none;
+  will-change: opacity, transform;
+}
+
+.login-page .login-form__submit.page-reveal.is-visible,
+.login-page .login-form__submit.page-reveal.page-reveal--scale-in.is-visible {
+  filter: none;
+}
+
 .login-page .login-form__submit.page-reveal {
   transition:
     opacity 1.25s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
     transform 1.25s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
-    filter 1.25s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
     background-color var(--transition),
     color var(--transition),
     border-color var(--transition);
@@ -517,7 +557,6 @@ a {
   transition:
     opacity 1.35s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
     transform 1.35s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
-    filter 1.35s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
     background-color var(--transition),
     color var(--transition),
     border-color var(--transition);
@@ -540,6 +579,9 @@ a {
     min-height: 60px;
     padding: 20px 24px;
     line-height: 1.3;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: rgba(255, 255, 255, 0.06);
   }
 
   .btn-pill--small {

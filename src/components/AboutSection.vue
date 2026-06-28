@@ -223,6 +223,7 @@ useRevealGroup(sectionRef)
   .about__content {
     height: auto;
     min-height: clamp(420px, 110vw, 627px);
+    padding-bottom: 20px;
   }
 
   .about__glow {

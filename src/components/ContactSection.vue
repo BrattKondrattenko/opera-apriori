@@ -99,6 +99,32 @@ useRevealGroup(sectionRef, { observer: { threshold: 0.32 } })
 @media (max-width: 768px) {
   .contact {
     padding: 48px 0;
+    overflow-x: clip;
+  }
+
+  .contact__inner {
+    width: 100%;
+    max-width: 100%;
+    padding-left: var(--side-padding) !important;
+    padding-right: var(--side-padding) !important;
+    box-sizing: border-box;
+  }
+
+  .contact__form,
+  .contact__field,
+  .contact__btn {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .contact__input {
+    max-width: 100%;
+  }
+
+  .contact.reveal-group--rich .reveal-item,
+  .contact.reveal-group--rich .reveal-item--scale-in {
+    filter: none;
   }
 
   .contact__sub {
