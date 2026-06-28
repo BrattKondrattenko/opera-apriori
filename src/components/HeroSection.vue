@@ -11,7 +11,7 @@
         preload="none"
         poster="/assets/hero-poster.jpg"
       >
-        <source v-if="shouldLoadVideo" src="/assets/video-opera.mp4" type="video/mp4" />
+        <source v-if="shouldLoadVideo" :src="videoSrc" type="video/mp4" />
       </video>
       <div class="hero__gradient"></div>
       <div class="hero__logo hero__logo--enter">
@@ -27,6 +27,17 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const videoRef = ref(null)
 const shouldLoadVideo = ref(false)
 const videoReady = ref(false)
+
+const MOBILE_BREAKPOINT = '(max-width: 768px)'
+
+function getVideoSrc() {
+  if (typeof window === 'undefined') return '/assets/video-opera-desktop.mp4'
+  return window.matchMedia(MOBILE_BREAKPOINT).matches
+    ? '/assets/video-opera-mobile.mp4'
+    : '/assets/video-opera-desktop.mp4'
+}
+
+const videoSrc = ref(getVideoSrc())
 
 let cancelled = false
 
